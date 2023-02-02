@@ -6,7 +6,7 @@ let numArticles =
 $(searchButton).on("click", function (e) { 
     e.preventDefault();
 
-
+articlesCont = $("#articlesCont")
 
 
 
@@ -33,7 +33,8 @@ let results = response.response.docs;
 
     for (var i = 0; i < results.length; i++) {
 const articleTitle = $("<h3>").text(results[i].headline.main);
-console.log(articleTitle);
+
+articlesCont.append(articleTitle)
 
     }
     
