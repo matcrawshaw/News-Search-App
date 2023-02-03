@@ -1,4 +1,3 @@
-let parametersForm = $("#parametersForm")
 let searchButton = $("#searchButton");
 let clearButton = $("#clearButton");
 let articlesCont = $("#articlesCont");
@@ -34,7 +33,14 @@ let articlesCont = $("#articlesCont");
                 const leadParagraph = $("<p>").text(results[i].lead_paragraph);
                 articlesCont.append(leadParagraph)
             }
-        })
+        }).then(function() {
+            $("#userSearch").val("");
+            $("#numArticles").val("1");
+            $("#startYear").val("");
+            $("#endYear").val("");
+        }
+        )
+
     }
     )
 
