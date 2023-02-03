@@ -4,6 +4,7 @@ let clearButton = $("#clearButton");
 let articlesCont = $("#articlesCont");
 
     $(searchButton).on("click", function (e) {
+        articlesCont.empty();
         e.preventDefault();
         
         let userSearch = $("#userSearch").val().trim();
@@ -26,7 +27,7 @@ let articlesCont = $("#articlesCont");
 
             console.log(results);
 
-            for (var i = 0; i < results.length; i++) {
+            for (var i = 0; i < numArticles; i++) {
                 const articleTitle = $("<h3>").text(results[i].headline.main);
                 console.log(results[i].headline.main);
                 articlesCont.append(articleTitle);
