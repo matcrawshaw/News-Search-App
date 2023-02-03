@@ -6,7 +6,7 @@ let articlesCont = $("#articlesCont");
     $(searchButton).on("click", function (e) {
         articlesCont.empty();
         e.preventDefault();
-        
+
         let userSearch = $("#userSearch").val().trim();
         let numArticles = $("#numArticles").val();
         let startYear = $("#startYear").val();

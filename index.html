@@ -16,9 +16,9 @@
 
 <body>
 
-  <div class="jumbotron jumbotron-fluid">
+  <div class="jumbotron jumbotron-fluid" id="header">
     <div class="container">
-      <h1 class="display-4">New York Times Search</h1>
+      <h1>New York Times Search</h1>
 
     </div>
   </div>
@@ -26,7 +26,7 @@
 
   <div class="container" id="parametersForm">
     <h2>Search Parameters</h2>
-    <form>
+    <form class="sectionBody">
       <div class="form-group">
         <label for="userSearch">Search Term</label>
         <input type="text" class="form-control" id="userSearch" name="userSearch">
@@ -53,16 +53,17 @@
         <input type="text" class="form-control" id="endYear" minlength="4" maxlength="4">
       </div>
 
-      <button type="button" id="searchButton" class="btn btn-primary btn-lg">Search</button>
-      <button type="button" id="clearButton" class="btn btn-secondary btn-lg">Clear Results</button>
+      <button type="button" id="searchButton" class="btn btn-primary btn-lg">🔍 Search</button>
+      <button type="button" id="clearButton" class="btn btn-secondary btn-lg">📋 Clear Results</button>
     </form>
 
   </div>
 
+  <br><br>
 
   <div class="container">
     <h2 id="articles">Top Articles</h2>
-    <div id="articlesCont">
+    <div class="sectionBody" id="articlesCont">
 
     </div>
 
