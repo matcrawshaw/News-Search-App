@@ -1,3 +1,4 @@
+let parametersForm = $("#parametersForm")
 let searchButton = $("#searchButton");
 let clearButton = $("#clearButton");
 let articlesCont = $("#articlesCont");
@@ -8,15 +9,24 @@ let articlesCont = $("#articlesCont");
 
         let userSearch = $("#userSearch").val().trim();
         let numArticles = $("#numArticles").val();
-        let startYear = $("#startYear").val();
-        let endYear = $("#endYear").val();
+        let startYearVal = $("#startYear").val();
+        let endYearVal = $("#endYear").val();
+        let startYear = moment(startYearVal, "YYYY").format("YYYY0101");
+        if (startYear === "Invalid date") {
+            startYear = "";
+        }
+        let endYear = moment(endYearVal, "YYYY").format("YYYY1231");
+        if (endYear === "Invalid date") {
+            endYear = "";
+        }
 
         console.log("userSearch: " + userSearch);
         console.log("numArticles: " + numArticles);
         console.log("startYear: " + startYear);
         console.log("endYear: " + endYear);
 
-        const queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + userSearch + "&api-key=ftsh42q2Uw4BCIx7TcwJd9qxcABol0Gh"
+        const queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + userSearch + "&?begin_date=" + startYear + "&?end_date=" + endYear + "&api-key=ftsh42q2Uw4BCIx7TcwJd9qxcABol0Gh"
+        console.log(queryURL);
 
         $.ajax({
             url: queryURL,
@@ -38,11 +48,9 @@ let articlesCont = $("#articlesCont");
             $("#numArticles").val("1");
             $("#startYear").val("");
             $("#endYear").val("");
-        }
-        )
+        });
 
-    }
-    )
+    });
 
     $(clearButton).on("click", function () {
         articlesCont.empty();
