@@ -31,6 +31,8 @@ let articlesCont = $("#articlesCont");
                 const articleTitle = $("<h3>").text(results[i].headline.main);
                 console.log(results[i].headline.main);
                 articlesCont.append(articleTitle);
+                const leadParagraph = $("<p>").text(results[i].lead_paragraph);
+                articlesCont.append(leadParagraph)
             }
         })
     }
